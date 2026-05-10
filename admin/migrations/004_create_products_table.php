@@ -1,0 +1,27 @@
+<?php
+return "CREATE TABLE IF NOT EXISTS products (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  slug VARCHAR(100) UNIQUE NOT NULL,
+  title VARCHAR(200) NOT NULL,
+  subtitle VARCHAR(200),
+  series_id INT DEFAULT NULL,
+  author VARCHAR(100) DEFAULT 'Maya Scott',
+  description TEXT,
+  price DECIMAL(10,2) NOT NULL DEFAULT 0.00,
+  compare_price DECIMAL(10,2) DEFAULT NULL,
+  image_primary VARCHAR(500),
+  image_secondary VARCHAR(500),
+  badge VARCHAR(100),
+  format VARCHAR(100),
+  pages VARCHAR(50),
+  isbn VARCHAR(50),
+  published VARCHAR(100),
+  tropes VARCHAR(500),
+  is_featured TINYINT(1) DEFAULT 0,
+  is_preorder TINYINT(1) DEFAULT 0,
+  status ENUM('active','inactive','coming_soon') DEFAULT 'active',
+  sort_order INT DEFAULT 0,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  FOREIGN KEY (series_id) REFERENCES series(id) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4";

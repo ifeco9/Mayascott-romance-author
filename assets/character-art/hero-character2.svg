@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300" width="200" height="300">
+  <defs>
+    <style>
+      @keyframes float-slow2 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+      @keyframes blink2 { 0%,95%,100%{transform:scaleY(1)} 97%{transform:scaleY(0.1)} }
+      .body2 { animation: float-slow2 3.5s ease-in-out infinite; }
+      .eye2 { animation: blink2 5s ease-in-out infinite; transform-origin: center; }
+    </style>
+  </defs>
+  <!-- Hair -->
+  <ellipse cx="100" cy="80" rx="40" ry="48" fill="#8B4513"/>
+  <ellipse cx="100" cy="98" rx="34" ry="26" fill="#f5e6d0"/>
+  <!-- Beanie -->
+  <path d="M62,62 Q62,44 80,40 L120,40 Q138,44 138,62 Z" fill="#2c5f8a" opacity="0.2"/>
+  <circle cx="100" cy="42" r="4" fill="#d4899a" opacity="0.3"/>
+  <!-- Body -->
+  <g class="body2">
+    <rect x="70" y="126" width="60" height="84" rx="10" fill="#d4899a" opacity="0.12"/>
+    <line x1="88" y1="135" x2="88" y2="165" stroke="#d4899a" stroke-width="2.5" opacity="0.2"/>
+    <line x1="112" y1="135" x2="112" y2="165" stroke="#d4899a" stroke-width="2.5" opacity="0.2"/>
+    <line x1="88" y1="186" x2="72" y2="216" stroke="#d4899a" stroke-width="2" opacity="0.15"/>
+    <line x1="112" y1="186" x2="128" y2="216" stroke="#d4899a" stroke-width="2" opacity="0.15"/>
+  </g>
+  <!-- Eyes -->
+  <g class="eye2">
+    <circle cx="86" cy="96" r="4" fill="#2c5f8a"/>
+    <circle cx="114" cy="96" r="4" fill="#2c5f8a"/>
+  </g>
+  <!-- Smile -->
+  <path d="M92,106 Q100,114 108,106" fill="none" stroke="#2c5f8a" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- Blush -->
+  <ellipse cx="78" cy="103" rx="5" ry="3" fill="#d4899a" opacity="0.2"/>
+  <ellipse cx="122" cy="103" rx="5" ry="3" fill="#d4899a" opacity="0.2"/>
+  <!-- Hand wave -->
+  <g transform="rotate(-15, 130, 136)">
+    <line x1="130" y1="136" x2="152" y2="118" stroke="#f5e6d0" stroke-width="4" stroke-linecap="round"/>
+  </g>
+</svg>

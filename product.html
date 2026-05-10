@@ -51,9 +51,8 @@
       </button>
 
       <div class="logo">
-        <a href="/">
-          <span class="logo-name">Maya Scott</span>
-          <span class="logo-tagline">Fantasy Romance Author</span>
+        <a href="index.html">
+          <img src="assets/logo.svg" alt="Maya Scott" width="180" height="90">
         </a>
       </div>
 
@@ -159,173 +158,59 @@
   <script src="js/main.js"></script>
   <script>
     var products = {
-      'whispers-of-magic': {
-        id: 'whispers-of-magic',
-        title: 'Whispers of Magic',
-        subtitle: 'Book One of The Enchanted Chronicles',
-        price: '14.99',
-        image: 'https://placehold.co/400x600/d4c5b0/333333?text=Whispers+of+Magic',
-        badge: 'Bestseller',
-        description: 'Elena Hart never believed in magic — until she found a mysterious ancient book in her grandmother\'s attic. Thrust into a world of hidden powers and dangerous secrets, she must navigate an enchanted realm where nothing is as it seems. When she meets the enigmatic Marcus Blackwood, their fake relationship sparks a connection that could either save them or destroy everything they hold dear.',
-        format: 'Paperback',
-        pages: '342',
-        isbn: '978-1-234567-89-0',
-        published: 'January 2026',
-        series: 'The Enchanted Chronicles',
-        tropes: 'Fake Relationship, Forced Proximity, Magical Realism'
-      },
-      'shadows-awaken': {
-        id: 'shadows-awaken',
-        title: 'Shadows Awaken',
-        subtitle: 'Book Two of The Enchanted Chronicles',
-        price: '14.99',
-        image: 'https://placehold.co/400x600/b4a590/333333?text=Shadows+Awaken',
-        badge: 'Bestseller',
-        description: 'Dark forces are gathering on the horizon. Elena and Marcus must confront an ancient evil that threatens to consume their world. As Elena trains with the mysterious Seraphina to master her powers, Marcus battles his own inner demons. Their love is tested like never before as they fight not only for survival but for a future together.',
-        format: 'Paperback',
-        pages: '368',
-        isbn: '978-1-234567-90-6',
-        published: 'March 2026',
-        series: 'The Enchanted Chronicles',
-        tropes: 'Enemies-to-Lovers, Slow Burn, Hidden Identity'
-      },
-      'hearts-entwined': {
-        id: 'hearts-entwined',
-        title: 'Hearts Entwined',
-        subtitle: 'Book Three of The Enchanted Chronicles',
-        price: '14.99',
-        image: 'https://placehold.co/400x600/a49580/333333?text=Hearts+Entwined',
-        badge: '',
-        description: 'An epic conclusion to the first arc of The Enchanted Chronicles. Elena faces her most difficult choice yet: save her world or protect the ones she loves. With Marcus by her side and the fate of two realms hanging in the balance, she must embrace her destiny and make the ultimate sacrifice. A heart-wrenching tale of love, loss, and the bonds that transcend magic itself.',
-        format: 'Paperback',
-        pages: '395',
-        isbn: '978-1-234567-91-3',
-        published: 'May 2026',
-        series: 'The Enchanted Chronicles',
-        tropes: 'Single Dad/Nanny, Found Family, Emotional Journey'
-      },
-      'complete-collection': {
-        id: 'complete-collection',
-        title: 'The Complete Collection',
-        subtitle: 'Books 1-3 of The Enchanted Chronicles',
-        price: '34.99',
-        comparePrice: '44.97',
-        image: 'https://placehold.co/400x600/948570/333333?text=The+Complete+Collection',
-        badge: 'Bundle',
-        description: 'Get all three books in The Enchanted Chronicles in one beautiful box set. Follow Elena Hart\'s journey from the moment she discovers her magical heritage through the epic conclusion. This bundle includes Whispers of Magic, Shadows Awaken, and Hearts Entwined — over 1,100 pages of fantasy romance at a special discounted price.',
-        format: 'Paperback Box Set',
-        pages: '1105',
-        isbn: '978-1-234567-92-0',
-        published: 'May 2026',
-        series: 'The Enchanted Chronicles',
-        tropes: 'Complete Series Box Set'
-      },
-      'signed-paperback': {
-        id: 'signed-paperback',
-        title: 'Signed Paperback',
-        subtitle: 'Any Book - Personalized',
-        price: '24.99',
-        image: 'https://placehold.co/400x600/847560/333333?text=Signed+Paperback',
-        badge: 'Signed',
-        description: 'Get a signed paperback copy of any book in The Enchanted Chronicles, personalized just for you. Each copy includes a hand-signed title page and a personalized message from Maya Scott. Please specify which book and the personalization details in your order notes. Allow 2-3 weeks for delivery.',
-        format: 'Signed Paperback',
-        pages: 'Varies by title',
-        isbn: 'N/A',
-        published: 'Available Now',
-        series: 'The Enchanted Chronicles',
-        tropes: 'Personalized Autograph Edition'
-      },
-      'ebook-bundle': {
-        id: 'ebook-bundle',
-        title: 'Ebook Bundle',
-        subtitle: 'Books 1-3 Digital Edition',
-        price: '19.99',
-        comparePrice: '29.97',
-        image: 'https://placehold.co/400x600/746550/333333?text=Ebook+Bundle',
-        badge: 'Digital',
-        description: 'The complete first arc of The Enchanted Chronicles in digital format. Perfect for your e-reader, tablet, or phone. Includes Whispers of Magic, Shadows Awaken, and Hearts Entwined. Compatible with Kindle, Kobo, Apple Books, and all major e-reading platforms. Instant download after purchase.',
-        format: 'Digital Ebook',
-        pages: '1105',
-        isbn: '978-1-234567-93-7',
-        published: 'Available Now',
-        series: 'The Enchanted Chronicles',
-        tropes: 'Digital Box Set'
-      },
-      'whispers-of-destiny': {
-        id: 'whispers-of-destiny',
-        title: 'Whispers of Destiny',
-        subtitle: 'Book Four of The Enchanted Chronicles',
-        price: '14.99',
-        image: 'https://placehold.co/400x600/8b3a3a/ffffff?text=Whispers+of+Destiny',
-        badge: 'Preorder',
-        description: 'A new chapter begins in The Enchanted Chronicles. When a mysterious stranger arrives in town with news of a lost realm, Elena and Marcus are drawn into an adventure that will test the very foundations of their love. New characters, new dangers, and a destiny that whispers of things to come.',
-        format: 'Paperback',
-        pages: 'TBD',
-        isbn: 'TBD',
-        published: 'June 2026',
-        series: 'The Enchanted Chronicles',
-        tropes: 'Marriage of Convenience, Second Chance, New Beginnings'
-      },
-      'shadows-of-the-past': {
-        id: 'shadows-of-the-past',
-        title: 'Shadows of the Past',
-        subtitle: 'Book Five of The Enchanted Chronicles',
-        price: '14.99',
-        image: 'https://placehold.co/400x600/6b2a2a/ffffff?text=Shadows+of+the+Past',
-        badge: 'Coming Soon',
-        description: 'The past never stays buried. When an old enemy resurfaces with a shocking revelation, Elena must confront the shadows of her own history. Marcus faces his own demons as their relationship is pushed to the breaking point. Secrets will be revealed, alliances will shift, and nothing will ever be the same.',
-        format: 'Paperback',
-        pages: 'TBD',
-        isbn: 'TBD',
-        published: 'September 2026',
-        series: 'The Enchanted Chronicles',
-        tropes: 'Enemies-to-Lovers, Redemption, Betrayal'
-      },
-      'eternal-bond': {
-        id: 'eternal-bond',
-        title: 'Eternal Bond',
-        subtitle: 'A Standalone Novel',
-        price: '14.99',
-        image: 'https://placehold.co/400x600/4b1a1a/ffffff?text=Eternal+Bond',
-        badge: 'Coming Soon',
-        description: 'A brand-new standalone fantasy romance from Maya Scott. In a world where soul bonds are sacred and rare, Lyra is a bonder — one who can sense the invisible threads that connect soulmates. When she meets a mysterious stranger with no bonds at all, she embarks on a journey to uncover the truth about love, destiny, and the ties that bind us.',
-        format: 'Paperback',
-        pages: 'TBD',
-        isbn: 'TBD',
-        published: 'December 2026',
-        series: 'Standalone',
-        tropes: 'Soulmates, Opposites Attract, Found Family'
-      }
-    };
+  'rev-me-up': {
+    id: 'rev-me-up',
+    title: 'Rev Me Up',
+    subtitle: 'The Hockey Heart Series - Book 1',
+    price: '14.99',
+    badge: 'Bestseller',
+    image: 'assets/book-cover/rev-me-up.jpg',
+    description: 'When figure skater Elara Chen and hockey captain Jake O\'Brien are forced to share the ice, the rivalry heats up fast. He\'s arrogant. She\'s determined. The tension between them could melt the entire rink. A rivals-to-lovers romance with steamy encounters and heartfelt moments.',
+    series: 'The Hockey Heart Series',
+    format: 'Paperback, 320 pages',
+    pages: '320',
+    isbn: '978-1-234-56789-0',
+    published: 'June 2026',
+    tropes: 'Rivals-to-Lovers, Sports Romance, Forced Proximity'
+  },
+  'the-broken-score': {
+    id: 'the-broken-score',
+    title: 'The Broken Score',
+    subtitle: 'The Hockey Heart Series - Book 2',
+    price: '14.99',
+    badge: 'Bestseller',
+    image: 'assets/book-cover/the-broken-score.jpg',
+    description: 'Mia Torres thought she left her past behind when she became the team\'s athletic trainer. But when her ex-boyfriend, hockey star Alex Chen, signs with the same team, old wounds reopen. Can they heal the score and find their way back to each other? A second-chance romance that proves some love stories deserve a replay.',
+    series: 'The Hockey Heart Series',
+    format: 'Paperback, 340 pages',
+    pages: '340',
+    isbn: '978-1-234-56789-1',
+    published: 'July 2026',
+    tropes: 'Second Chance, Sports Romance, Exes-to-Lovers'
+  },
+  'the-fake-score': {
+    id: 'the-fake-score',
+    title: 'The Fake Score',
+    subtitle: 'The Hockey Heart Series - Book 3',
+    price: '14.99',
+    badge: 'New Release',
+    image: 'assets/book-cover/the-fake-score.jpg',
+    description: 'Bad-boy hockey player Ryan Black needs a image makeover. Quiet librarian Sophie Bennett needs to pay off her brother\'s medical bills. A fake relationship seems like the perfect solution - until real feelings score the winning goal. A steamy fake-dating romance with heart, humor, and hockey.',
+    series: 'The Hockey Heart Series',
+    format: 'Paperback, 360 pages',
+    pages: '360',
+    isbn: '978-1-234-56789-2',
+    published: 'August 2026',
+    tropes: 'Fake Relationship, Sports Romance, Bad Boy/Good Girl'
+  }
+};
+    var reviewsData = { 'default': [
+      { stars: 5, text: 'Maya Scott writes the most engaging hockey romance.', author: 'BookishReader24' },
+      { stars: 5, text: 'I discovered this series and read all three books in a week.', author: 'HockeyRomanceFan' },
+      { stars: 4, text: 'Steamy, heartfelt, and full of chemistry. Highly recommended.', author: 'AvidReader88' }
+    ]};
 
-    var reviewsData = {
-      'whispers-of-magic': [
-        { stars: 5, text: 'Absolutely magical! I couldn\'t put this book down. The fake relationship trope was executed perfectly, and the world-building is stunning.', author: 'Sarah M.' },
-        { stars: 5, text: 'Maya Scott has created a world I never want to leave. Elena and Marcus have incredible chemistry.', author: 'Jessica R.' },
-        { stars: 4, text: 'A wonderful start to the series. The magical elements are creative and the romance is heartfelt.', author: 'Emily T.' }
-      ],
-      'shadows-awaken': [
-        { stars: 5, text: 'Even better than the first book! The tension is incredible and the character development is superb.', author: 'Amanda L.' },
-        { stars: 5, text: 'The enemies-to-lovers dynamic in this book is chef\'s kiss. Maya Scott just keeps getting better.', author: 'Rachel K.' },
-        { stars: 4, text: 'A strong sequel that deepens the story and raises the stakes. Can\'t wait for book three!', author: 'Jennifer W.' }
-      ],
-      'hearts-entwined': [
-        { stars: 5, text: 'A stunning conclusion to the first arc. I laughed, I cried, and I immediately wanted to read it again.', author: 'Michelle D.' },
-        { stars: 5, text: 'This book broke me in the best way possible. The single dad/nanny trope was beautifully done.', author: 'Lauren P.' },
-        { stars: 5, text: 'Maya Scott is a master storyteller. The emotional depth in this book is remarkable.', author: 'Stephanie B.' }
-      ],
-      'default': [
-        { stars: 5, text: 'Maya Scott writes the most engaging fantasy romance. Her characters feel like friends by the end of each book.', author: 'BookishReader24' },
-        { stars: 5, text: 'I discovered this series and read all three books in a week. Absolutely addictive storytelling.', author: 'FantasyRomanceFan' },
-        { stars: 4, text: 'Rich world-building, compelling characters, and just the right amount of spice. Highly recommended.', author: 'AvidReader88' }
-      ]
-    };
-
-    document.addEventListener('DOMContentLoaded', function () {
-      var params = new URLSearchParams(window.location.search);
-      var productId = params.get('id') || 'whispers-of-magic';
-      var product = products[productId] || products['whispers-of-magic'];
-
+    function renderProduct(product) {
       if (!product) {
         document.getElementById('productDetail').innerHTML = '<p>Product not found. <a href="books.html">Browse our collection.</a></p>';
         return;
@@ -343,10 +228,10 @@
         '<div class="product-detail-info">' +
           badgeHTML +
           '<h1>' + product.title + '</h1>' +
-          '<p class="product-detail-author">by Maya Scott &mdash; ' + product.subtitle + '</p>' +
+          '<p class="product-detail-author">by Maya Scott &mdash; ' + (product.subtitle || '') + '</p>' +
           '<div class="product-detail-price">' + priceHTML + '</div>' +
           '<div class="product-detail-description">' +
-            '<p>' + product.description + '</p>' +
+            '<p>' + (product.description || '') + '</p>' +
           '</div>' +
           '<div class="product-format-selector">' +
             '<h4>Format</h4>' +
@@ -361,18 +246,17 @@
             '<button class="btn btn-primary" data-add-to-cart data-product-id="' + product.id + '" data-product-title="' + product.title + '" data-product-price="' + product.price + '" data-product-image="' + product.image + '">Add to Cart</button>' +
           '</div>' +
           '<div class="product-detail-meta">' +
-            '<p><strong>Series:</strong> ' + product.series + '</p>' +
-            '<p><strong>Format:</strong> ' + product.format + '</p>' +
-            '<p><strong>Pages:</strong> ' + product.pages + '</p>' +
-            '<p><strong>ISBN:</strong> ' + product.isbn + '</p>' +
-            '<p><strong>Published:</strong> ' + product.published + '</p>' +
-            '<p><strong>Tropes:</strong> ' + product.tropes + '</p>' +
+            '<p><strong>Series:</strong> ' + (product.series || 'N/A') + '</p>' +
+            '<p><strong>Format:</strong> ' + (product.format || 'N/A') + '</p>' +
+            '<p><strong>Pages:</strong> ' + (product.pages || 'N/A') + '</p>' +
+            '<p><strong>ISBN:</strong> ' + (product.isbn || 'N/A') + '</p>' +
+            '<p><strong>Published:</strong> ' + (product.published || 'N/A') + '</p>' +
+            '<p><strong>Tropes:</strong> ' + (product.tropes || 'N/A') + '</p>' +
           '</div>' +
         '</div>';
 
       document.getElementById('productDetail').innerHTML = detailHTML;
 
-      // Format selector toggle
       document.querySelectorAll('.format-option').forEach(function (btn) {
         btn.addEventListener('click', function () {
           document.querySelectorAll('.format-option').forEach(function (b) { b.classList.remove('active'); });
@@ -380,8 +264,10 @@
         });
       });
 
-      // Reviews
-      var reviews = reviewsData[productId] || reviewsData['default'];
+      var params = new URLSearchParams(window.location.search);
+      var productId = params.get('id') || 'rev-me-up';
+      var reviewsDataAll = (typeof window.allReviews !== 'undefined') ? window.allReviews : {};
+      var reviews = reviewsDataAll[productId] || reviewsData['default'];
       var reviewsHTML = '';
       reviews.forEach(function (review) {
         var stars = '';
@@ -390,11 +276,33 @@
         reviewsHTML +=
           '<div class="review-card">' +
             '<div class="review-stars">' + stars + '</div>' +
-            '<p>"' + review.text + '"</p>' +
-            '<div class="review-author">- ' + review.author + '</div>' +
+            '<p>"' + (review.text || '') + '"</p>' +
+            '<div class="review-author">- ' + (review.author || '') + '</div>' +
           '</div>';
       });
       document.getElementById('reviewsGrid').innerHTML = reviewsHTML;
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      var params = new URLSearchParams(window.location.search);
+      var productId = params.get('id') || 'rev-me-up';
+
+      fetch('api/products.php')
+        .then(function (r) { return r.json(); })
+        .then(function (data) {
+          window.allReviews = {};
+          for (var slug in data) {
+            if (data[slug].reviews) {
+              window.allReviews[slug] = data[slug].reviews;
+              delete data[slug].reviews;
+            }
+          }
+          products = data;
+          renderProduct(products[productId] || products[Object.keys(products)[0]]);
+        })
+        .catch(function () {
+          document.getElementById('productDetail').innerHTML = '<p>Unable to load product data. <a href="books.html">Browse our collection.</a></p>';
+        });
     });
   </script>
 </body>

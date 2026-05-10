@@ -81,11 +81,11 @@ document.addEventListener('DOMContentLoaded', function () {
         '</div>';
       document.getElementById('continueShopping')?.addEventListener('click', closeCart);
     } else {
-      var cartHTML = '<div class="cart-items">';
-      var total = 0;
+      let cartHTML = '<div class="cart-items">';
+      let total = 0;
 
       cart.forEach(function (item, index) {
-        var priceNum = parseFloat(item.price.replace(/[^0-9.]/g, '')) || 0;
+        const priceNum = parseFloat(item.price.replace(/[^0-9.]/g, '')) || 0;
         total += priceNum * item.quantity;
         cartHTML +=
           '<div class="cart-item">' +
@@ -125,8 +125,8 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function handleQuantityChange(e) {
-    var index = parseInt(e.target.dataset.index);
-    var action = e.target.dataset.action;
+    const index = parseInt(e.target.dataset.index);
+    const action = e.target.dataset.action;
     if (action === 'increase') {
       cart[index].quantity += 1;
     } else if (action === 'decrease' && cart[index].quantity > 1) {
@@ -137,14 +137,14 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function handleRemoveItem(e) {
-    var index = parseInt(e.target.dataset.index);
+    const index = parseInt(e.target.dataset.index);
     cart.splice(index, 1);
     saveCart();
     updateCartUI();
   }
 
   function showAddedToCartFeedback(button) {
-    var originalText = button.textContent;
+    const originalText = button.textContent;
     button.textContent = 'Added!';
     button.style.background = '#2e7d32';
     setTimeout(function () {
@@ -157,11 +157,11 @@ document.addEventListener('DOMContentLoaded', function () {
   updateCartUI();
 
   // ===== ANNOUNCEMENT SLIDER =====
-  var announceSlides = document.querySelectorAll('.announcement-slide');
-  var announcePrev = document.getElementById('announcePrev');
-  var announceNext = document.getElementById('announceNext');
-  var currentAnnounce = 0;
-  var announceInterval;
+  const announceSlides = document.querySelectorAll('.announcement-slide');
+  const announcePrev = document.getElementById('announcePrev');
+  const announceNext = document.getElementById('announceNext');
+  let currentAnnounce = 0;
+  let announceInterval;
 
   if (announceSlides.length > 1) {
     function goToAnnounce(index) {
@@ -180,10 +180,10 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // ===== HERO SLIDER =====
-  var heroSlides = document.querySelectorAll('.hero-slide');
-  var heroDots = document.querySelectorAll('.hero-dot');
-  var currentHero = 0;
-  var heroInterval;
+  const heroSlides = document.querySelectorAll('.hero-slide');
+  const heroDots = document.querySelectorAll('.hero-dot');
+  let currentHero = 0;
+  let heroInterval;
 
   if (heroSlides.length > 1) {
     function goToHero(index) {
@@ -207,16 +207,16 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // ===== SEARCH OVERLAY =====
-  var searchToggle = document.getElementById('searchToggle');
-  var searchOverlay = document.getElementById('searchOverlay');
-  var searchClose = document.getElementById('searchClose');
+  const searchToggle = document.getElementById('searchToggle');
+  const searchOverlay = document.getElementById('searchOverlay');
+  const searchClose = document.getElementById('searchClose');
 
   if (searchToggle && searchOverlay) {
     searchToggle.addEventListener('click', function () {
       searchOverlay.classList.toggle('open');
       if (searchOverlay.classList.contains('open')) {
         setTimeout(function () {
-          var input = searchOverlay.querySelector('input');
+          const input = searchOverlay.querySelector('input');
           if (input) input.focus();
         }, 100);
       }
@@ -234,10 +234,10 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // ===== MOBILE NAV =====
-  var mobileBtn = document.getElementById('mobileMenuBtn');
-  var mobileOverlay = document.getElementById('mobileNavOverlay');
-  var mobileClose = document.getElementById('mobileNavClose');
-  var mobileDropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
+  const mobileBtn = document.getElementById('mobileMenuBtn');
+  const mobileOverlay = document.getElementById('mobileNavOverlay');
+  const mobileClose = document.getElementById('mobileNavClose');
+  const mobileDropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
 
   if (mobileBtn && mobileOverlay) {
     mobileBtn.addEventListener('click', function () {
@@ -270,10 +270,10 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // ===== TESTIMONIAL SLIDER =====
-  var testimonials = document.querySelectorAll('.testimonial');
-  var testimonialDots = document.querySelectorAll('.testimonial-dot');
-  var currentTestimonial = 0;
-  var testimonialInterval;
+  const testimonials = document.querySelectorAll('.testimonial');
+  const testimonialDots = document.querySelectorAll('.testimonial-dot');
+  let currentTestimonial = 0;
+  let testimonialInterval;
 
   if (testimonials.length > 1) {
     function goToTestimonial(index) {
@@ -297,35 +297,62 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // ===== NEWSLETTER FORMS =====
-  var forms = document.querySelectorAll('.newsletter-form, .footer-newsletter-form, .bonus-newsletter-form');
+  const forms = document.querySelectorAll('.newsletter-form, .footer-newsletter-form, .bonus-newsletter-form');
   forms.forEach(function (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      var input = this.querySelector('input[type="email"]');
-      var email = input ? input.value.trim() : '';
+      const input = this.querySelector('input[type="email"]');
+      const email = input ? input.value.trim() : '';
+      const submitBtn = this.querySelector('button[type="submit"]');
 
-      if (email && isValidEmail(email)) {
-        var formData = new FormData(this);
-        formData.append('form_type', 'newsletter');
-        alert('Thank you for subscribing! Check your email to confirm.');
-        if (input) input.value = '';
-      } else {
+      if (!email || !isValidEmail(email)) {
         alert('Please enter a valid email address.');
+        return;
       }
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Subscribing...';
+      }
+
+      const formData = new FormData(this);
+      fetch('subscribe.php', {
+        method: 'POST',
+        body: formData
+      })
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        if (data.success) {
+          alert(data.message);
+          if (input) input.value = '';
+        } else {
+          alert(data.message || 'Something went wrong. Please try again.');
+        }
+      })
+      .catch(function () {
+        alert('Something went wrong. Please try again.');
+      })
+      .finally(function () {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Subscribe';
+        }
+      });
     });
   });
 
   // ===== CONTACT FORM VALIDATION =====
-  var contactForm = document.getElementById('contactForm');
+  const contactForm = document.getElementById('contactForm');
   if (contactForm) {
     contactForm.addEventListener('submit', function (e) {
       e.preventDefault();
 
-      var name = document.getElementById('name').value.trim();
-      var email = document.getElementById('email').value.trim();
-      var subject = document.getElementById('subject').value.trim();
-      var message = document.getElementById('message').value.trim();
-      var formMessage = document.getElementById('formMessage');
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const subject = document.getElementById('subject').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const formMessage = document.getElementById('formMessage');
+      const submitBtn = this.querySelector('button[type="submit"]');
 
       formMessage.className = 'form-message';
       formMessage.textContent = '';
@@ -347,21 +374,164 @@ document.addEventListener('DOMContentLoaded', function () {
         return;
       }
 
-      var formData = new FormData(this);
-      formData.append('form_type', 'contact');
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+      }
 
-      showFormMessage(formMessage, 'Thank you for your message! We will get back to you soon.', 'success');
-      this.reset();
+      const formData = new FormData(this);
+      fetch('contact.php', {
+        method: 'POST',
+        body: formData
+      })
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        if (data.success) {
+          showFormMessage(formMessage, data.message, 'success');
+          contactForm.reset();
+        } else {
+          showFormMessage(formMessage, data.message || 'Something went wrong.', 'error');
+        }
+      })
+      .catch(function () {
+        showFormMessage(formMessage, 'Something went wrong. Please try again.', 'error');
+      })
+      .finally(function () {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send Message';
+        }
+      });
     });
   }
 
   function isValidEmail(email) {
-    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   }
 
   function showFormMessage(element, message, type) {
     element.textContent = message;
     element.className = 'form-message ' + type;
+  }
+
+  // ===== BOOK CAROUSEL =====
+  const carouselTrack = document.querySelector('.book-carousel-track');
+  const carouselPrev = document.querySelector('.book-carousel-prev');
+  const carouselNext = document.querySelector('.book-carousel-next');
+  const carouselDots = document.getElementById('bookCarouselDots');
+
+  if (carouselTrack && carouselPrev && carouselNext) {
+    let carouselPos = 0;
+    let slideWidth = 0;
+    const slides = carouselTrack.children;
+    const totalSlides = slides.length;
+
+    function getSlideWidth() {
+      if (slides.length > 0) {
+        slideWidth = slides[0].offsetWidth;
+      }
+    }
+
+    function createDots() {
+      if (!carouselDots) return;
+      carouselDots.innerHTML = '';
+      for (let i = 0; i < totalSlides; i++) {
+        const dot = document.createElement('button');
+        dot.className = 'book-carousel-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+        dot.addEventListener('click', function () {
+          carouselPos = -i * slideWidth;
+          updateCarousel();
+          updateDots(i);
+        });
+        carouselDots.appendChild(dot);
+      }
+    }
+
+    function updateDots(activeIndex) {
+      if (!carouselDots) return;
+      Array.from(carouselDots.children).forEach(function (dot, i) {
+        dot.classList.toggle('active', i === activeIndex);
+      });
+    }
+
+    function updateCarousel() {
+      getSlideWidth();
+      const maxPos = -(totalSlides - 1) * slideWidth;
+      carouselPos = Math.max(maxPos, Math.min(0, carouselPos));
+      carouselTrack.style.transform = 'translateX(' + carouselPos + 'px)';
+    }
+
+    getSlideWidth();
+    createDots();
+
+    carouselNext.addEventListener('click', function () {
+      const maxPos = -(totalSlides - 1) * slideWidth;
+      if (carouselPos > maxPos) {
+        carouselPos -= slideWidth;
+        updateCarousel();
+        var activeIndex = Math.round(Math.abs(carouselPos) / slideWidth);
+        updateDots(activeIndex);
+      }
+    });
+
+    carouselPrev.addEventListener('click', function () {
+      if (carouselPos < 0) {
+        carouselPos += slideWidth;
+        updateCarousel();
+        var activeIndex = Math.round(Math.abs(carouselPos) / slideWidth);
+        updateDots(activeIndex);
+      }
+    });
+
+    window.addEventListener('resize', function () {
+      getSlideWidth();
+      var clampedIndex = Math.round(Math.abs(carouselPos) / Math.max(slideWidth, 1));
+      carouselPos = -clampedIndex * slideWidth;
+      updateCarousel();
+    });
+  }
+
+  // ===== SCROLL REVEAL =====
+  const revealElements = document.querySelectorAll('.reveal');
+  if (revealElements.length > 0 && 'IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    revealElements.forEach(function (el) {
+      revealObserver.observe(el);
+    });
+  }
+
+  // ===== SPARKLE EFFECT =====
+  const sparkleElements = document.querySelectorAll('.sparkle');
+  sparkleElements.forEach(function (el) {
+    el.style.animation = 'sparkle 2s ease-in-out infinite';
+  });
+
+  // ===== 3D BOOK TILT =====
+  const book3D = document.getElementById('book3DInner');
+  const bookContainer = document.getElementById('heroBook3D');
+  if (book3D && bookContainer) {
+    bookContainer.addEventListener('mousemove', function (e) {
+      const rect = bookContainer.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = ((y - centerY) / centerY) * -12;
+      const rotateY = ((x - centerX) / centerX) * 12;
+      book3D.style.transform = 'rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) scale3d(1.02,1.02,1.02)';
+    });
+    bookContainer.addEventListener('mouseleave', function () {
+      book3D.style.transform = 'rotateX(0deg) rotateY(0deg) scale3d(1,1,1)';
+    });
   }
 });

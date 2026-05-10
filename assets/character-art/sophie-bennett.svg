@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500">
+  <rect width="400" height="500" fill="#fdf2f4"/>
+  <circle cx="200" cy="170" r="80" fill="#d4899a" opacity="0.15"/>
+  <circle cx="200" cy="170" r="60" fill="#d4899a" opacity="0.25"/>
+  <circle cx="200" cy="170" r="40" fill="#d4899a" opacity="0.35"/>
+  <text x="200" y="290" font-family="Georgia, serif" font-size="22" fill="#d4899a" text-anchor="middle" font-weight="bold">Sophie Bennett</text>
+  <text x="200" y="315" font-family="Arial, sans-serif" font-size="12" fill="#999" text-anchor="middle" letter-spacing="2">Librarian</text>
+  <line x1="100" y1="355" x2="300" y2="355" stroke="#e0e6ed" stroke-width="1"/>
+  <text x="200" y="400" font-family="Georgia, serif" font-size="11" fill="#aaa" text-anchor="middle" font-style="italic">The Fake Score</text>
+</svg>
