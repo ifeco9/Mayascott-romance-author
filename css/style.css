@@ -369,6 +369,12 @@ input {
   overflow-y: auto;
   padding: 24px;
   position: relative;
+  transform: translateX(-100%);
+  transition: transform 0.35s ease;
+}
+
+.mobile-nav-overlay.open .mobile-nav-panel {
+  transform: translateX(0);
 }
 
 .mobile-nav-close {
@@ -963,8 +969,10 @@ input {
 
 @media (max-width: 768px) {
   .hero-layout {
+    display: flex;
     flex-direction: column;
     gap: 30px;
+    padding: 80px 24px 40px;
   }
 
   .hero-content {
@@ -977,6 +985,47 @@ input {
 
   .book-3d-inner {
     width: 160px;
+  }
+
+  .hero-visual {
+    min-height: auto;
+  }
+
+  .hero-floating-books {
+    width: 200px;
+    height: 300px;
+  }
+
+  .hero-book-secondary,
+  .hero-book-tertiary {
+    width: 80px;
+  }
+
+  .hero-book-secondary {
+    right: -10px;
+  }
+
+  .hero-book-tertiary {
+    left: -10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    min-height: 0;
+    padding: 60px 0 40px;
+  }
+
+  .hero-title-line {
+    font-size: clamp(36px, 10vw, 48px);
+  }
+
+  .hero-tagline {
+    max-width: 100%;
+  }
+
+  .hero-scroll-indicator {
+    display: none;
   }
 }
 
@@ -2484,6 +2533,11 @@ input {
     width: 120px;
   }
 
+  .about-stats {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
   .about-books-grid {
     gap: 10px;
   }
@@ -2502,6 +2556,46 @@ input {
 
   .bonus-book-strip-item {
     flex: 0 0 90px;
+  }
+
+  .search-overlay {
+    padding: 16px;
+  }
+
+  .search-form input {
+    font-size: 16px;
+  }
+
+  .search-close {
+    top: -32px;
+  }
+
+  .announcement-prev,
+  .announcement-next {
+    font-size: 14px;
+    padding: 2px 6px;
+  }
+
+  .quantity-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+
+  .cart-item-remove {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+  }
+
+  .site-footer {
+    padding: 36px 0 24px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
   }
 }
 
@@ -2552,5 +2646,33 @@ input {
 
   .book-carousel {
     max-width: 100%;
+  }
+
+  .book-carousel-prev {
+    left: 4px;
+  }
+
+  .book-carousel-next {
+    right: 4px;
+  }
+
+  .book-carousel-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+    opacity: 0.9;
+  }
+
+  .checkout-summary {
+    padding: 20px;
+  }
+
+  .bonus-locked {
+    padding: 30px 20px;
+  }
+
+  .footer-social {
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }
