@@ -2199,6 +2199,7 @@ input {
   position: relative;
   max-width: 520px;
   margin: 0 auto;
+  overflow: hidden;
 }
 
 .book-carousel-track {
@@ -2588,6 +2589,21 @@ input {
     font-size: 18px;
   }
 
+  .book-carousel-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+    opacity: 0.9;
+  }
+
+  .book-carousel-prev {
+    left: 4px;
+  }
+
+  .book-carousel-next {
+    right: 4px;
+  }
+
   .site-footer {
     padding: 36px 0 24px;
   }
@@ -2663,21 +2679,6 @@ input {
   .polaroid-frame {
     padding: 8px 8px 28px;
     max-width: 220px;
-  }
-
-  .book-carousel-prev {
-    left: 4px;
-  }
-
-  .book-carousel-next {
-    right: 4px;
-  }
-
-  .book-carousel-btn {
-    width: 36px;
-    height: 36px;
-    font-size: 16px;
-    opacity: 0.9;
   }
 
   .checkout-summary {
