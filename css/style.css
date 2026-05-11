@@ -2639,13 +2639,30 @@ input {
     flex: 0 0 70px;
   }
 
+  .book-carousel-section {
+    padding: 40px 0;
+  }
+
+  .book-carousel-section .section-title {
+    margin-bottom: 24px;
+  }
+
   .book-carousel-slide {
-    min-height: 380px;
-    padding: 20px;
+    min-height: 300px;
+    padding: 10px;
   }
 
   .book-carousel {
     max-width: 100%;
+  }
+
+  .book-carousel-dots {
+    margin-top: 16px;
+  }
+
+  .polaroid-frame {
+    padding: 8px 8px 28px;
+    max-width: 220px;
   }
 
   .book-carousel-prev {
